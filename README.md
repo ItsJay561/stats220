@@ -1,11 +1,20 @@
-# stats220
+# STATS 220 Repository
 
-This is my repo for STATS 220. 
+## About Me
 
-A little about me:
+- I am currently undertaking a **degree in computer science**.
+- I am taking STATS 220 because it's *important to learn and understand for future reasons*.
+- I have a keen interest in learning about the [R programming language](https://www.r-project.org/).
 
-- I am undertaking a degree in computer science
-- I am taking STATS 220 because its good to learn and understand for future reasons
-- I am interested in learning about using R progamming language
+## My University Journey
 
-A meme that captures how I currently feel about my university studies is ![](https://c.tenor.com/8druEACXtX8AAAAd/tenor.gif)
+1. **Coursework**: Focused on data analysis and statistical methods.
+2. **Projects**: Working on various assignments and group projects.
+3. **Future Goals**: Apply statistics in programming and data science.
+
+![Animated GIF](https://media.giphy.com/media/xT9IgG50Fb7Mi0pr6g/giphy.gif)
+
+## Resources
+
+For more information about my university, visit the [University of Auckland](https://www.auckland.ac.nz/en.html) website.
+
