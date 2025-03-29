@@ -1,0 +1,100 @@
+---
+title: My Youtube Ad Report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+library(tidyverse)
+
+# Read the CSV file into a data frame
+logged_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQo7Zgk31MeTgFfEcNQpUTPjEnZ-B7G1BdqcGt4PEqt0KG2WgtMkIMBTQsC9PupKfxOO7OM3p2IyCD3/pub?output=csv")
+
+# Clean and rename columns for easier reference
+latest_data <- logged_data %>%
+  rename(
+    ads_seen = `How many ads did you see before your video started?`,
+    ad_type = `What type of ad was most common?`,
+    video_type = `What type of video were you watching?`,
+    skip_behavior = `Did you skip the ad(s) or watch them?`
+  )
+
+
+# Compute specific summary values
+min_ads <- latest_data$ads_seen %>% min(na.rm = TRUE)  
+max_ads <- latest_data$ads_seen %>% max(na.rm = TRUE)  
+mean_ads <- latest_data$ads_seen %>% mean(na.rm = TRUE) %>% round(2)
+
+
+```
+
+```{css}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 20px;
+    padding: 20px;
+}
+
+h2 {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.bar-chart {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+```
+
+## What's going on with this data?
+
+You need to change the contents of this Rmd! Replace the R code and markdown give below in this template document.
+
+```{r}
+
+# Print summary values
+paste0("Minimun amount of ads seen: ", min_ads)
+paste0("Maximum amount of  ads seen: ", max_ads)
+paste0("The Mean for the ads seen is: ", mean_ads)
+
+
+# Bar chart 1: Most common ad types grouped by video type
+latest_data %>%
+  ggplot() +
+  geom_bar(aes(x = ad_type, fill = video_type), position = "dodge") +
+  labs(title = "Ad Type Distribution Across Video Categories",
+       subtitle = "Which types of ads are most common for different video categories?",
+       caption = "Source: YouTube Ad Tracking Survey",
+       x = "Ad Type",
+       y = "Number of Responses",
+       fill = "Video Type") 
+
+# Bar chart 2: Skip behavior by ad type
+latest_data %>%
+  ggplot() +
+  geom_bar(aes(x = skip_behavior, fill = ad_type), position = "dodge") +
+  labs(title = "Ad Skipping Behavior by Ad Type",
+       subtitle = "Do different ad types affect whether users skip?",
+       caption = "Source: YouTube Ad Tracking Survey",
+       x = "Skipping Behavior",
+       y = "Number of Responses",
+       fill = "Ad Type") 
+
+
+
+
+```
+
+
