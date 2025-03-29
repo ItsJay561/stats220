@@ -58,9 +58,6 @@ p {
 }
 ```
 
-## What's going on with this data?
-
-You need to change the contents of this Rmd! Replace the R code and markdown give below in this template document.
 
 ```{r}
 
@@ -91,10 +88,6 @@ latest_data %>%
        x = "Skipping Behavior",
        y = "Number of Responses",
        fill = "Ad Type") 
-
-
-
-
 ```
 
 
