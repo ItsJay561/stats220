@@ -76,7 +76,8 @@ latest_data %>%
        caption = "Source: YouTube Ad Tracking Survey",
        x = "Ad Type",
        y = "Number of Responses",
-       fill = "Video Type") 
+       fill = "Video Type") +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 10)) 
 
 # Bar chart 2: Skip behavior by ad type
 latest_data %>%
